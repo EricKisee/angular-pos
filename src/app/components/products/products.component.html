@@ -1,0 +1,9 @@
+<app-add-product (onAddProduct)="addProduct($event)"></app-add-product>
+<app-product-item 
+    *ngFor="let product of products" 
+    [product]="product" 
+    (onAddProduct)="add(product)" 
+    (onMinusProduct)="minus(product)"
+    (onToggleProduct)="toggle(product)"
+></app-product-item>
+ 

@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tusker Lager",
+      "description": "Lager 500ml",
+      "quantity": 9,
+      "price": 200
+    },
+    {
+      "id": 2,
+      "name": "Tusker Malt",
+      "description": "Malt 500ml",
+      "quantity": 20,
+      "price": 200
+    },
+    {
+      "id": 3,
+      "name": "Tusker Cider",
+      "description": "Cider 500ml",
+      "quantity": 20,
+      "price": 200
+    },
+    {
+      "id": 4,
+      "name": "Snap",
+      "description": "Cider 500ml",
+      "quantity": 9,
+      "price": 250
+    },
+    {
+      "name": "picture",
+      "description": "adsadas",
+      "quantity": 10,
+      "price": "400",
+      "id": 5
+    }
+  ]
+}

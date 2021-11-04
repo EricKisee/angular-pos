@@ -1,0 +1,11 @@
+<div [ngClass]="{reminder : product.quantity<10}" class="product" (dblclick) = "onToggle(product)">
+    <h3>
+        {{product.name}}
+        <div class="buttons">
+            <fa-icon (click)="onAdd(product)" [ngStyle] ="{'color': 'green'}" [icon]="faPlus"></fa-icon> 
+            <fa-icon (click)="onMinus(product)" [ngStyle] ="{'color': 'red'}" [icon]="faMinus"></fa-icon> 
+        </div>
+    </h3>
+    <p>{{product.description}}</p>
+    <p>Quantity: {{product.quantity}} Price: {{product.price}}</p>
+</div>
