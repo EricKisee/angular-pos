@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User, _embedded, _links, Data } from 'src/app/User';
+import { User, users, Links, self } from 'src/app/User';
 import { Observable, of } from 'rxjs';
 
 const httpOptions = {
@@ -15,24 +15,24 @@ const httpOptions = {
 
 export class UserService {
 
-  data!: Data;
-  userList: User[] = [];
+  userList!: User ;
 
-  private apiUrl = 'http://localhost:8080/users';
+  private apiUrl = 'http://localhost:8080/users/';
 
   constructor( private http:HttpClient) { }
 
-  getUsers () : Observable<User[]> {
-    this.getData().subscribe((data) =>(
-      this.userList = data._embedded.userList
-    ));
-    console.log(this.userList);
-    const res = of(this.userList);
-    return res;
+  getUser (id:number) : Observable <User> {
+    return this.http.get<User>(this.apiUrl+id)
   }
 
-  getData () : Observable <Data> {
-    return this.http.get<Data>(this.apiUrl)
-  }
+
+  // getUsers () : Observable<User> {
+  //   this.getData().subscribe((data) =>(
+  //     this.userList = data._embedded.userList
+  //   ));
+  //   console.log(this.userList);
+  //   const res = of(this.userList);
+  //   return res;
+  // }
 
 }

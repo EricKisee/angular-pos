@@ -1,23 +1,29 @@
+export interface self {
+    href: string;
+}
+
+export interface users {
+    href : string;
+}
+
+export interface Links {
+    self: self;
+    users: users;
+}
+
 export interface User {
     id?:number;
     username: string;
     name: string;
     password: string;
+    _links: Links;
 }
 
-export interface _embedded {
-    userList : User[];
-}
 
-export interface _links {
-    self : Object;
-    users: Object;
-}
 
-export interface Data {
-    _embedded : _embedded;
-    _links : _links;
-}
+
+
+
 
 
 

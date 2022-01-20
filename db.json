@@ -29,11 +29,19 @@
       "price": 250
     },
     {
-      "name": "picture",
-      "description": "adsadas",
-      "quantity": 10,
-      "price": "400",
-      "id": 5
+      "id": 5,
+      "name": "Gilbeys Pink",
+      "description": "Gelbeys 750 ml",
+      "quantity": 13,
+      "price": 1200,
+      "_links": {
+        "self": {
+          "href": "http://localhost:8080/products/5"
+        },
+        "products": {
+          "href": "http://localhost:8080/products"
+        }
+      }
     }
   ]
 }

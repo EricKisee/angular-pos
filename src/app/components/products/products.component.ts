@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Product';
+import { product } from 'src/app/Product_';
+import { embedded, Products } from 'src/app/Products';
 import { ProductService } from 'src/app/services/product.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,6 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 export class ProductsComponent implements OnInit {
 
   products: Product [] = [];
+  embedded ?: embedded;
+  products2 : product [] = [];
 
   constructor(private productService : ProductService, private userService : UserService) { }
 
@@ -18,7 +22,18 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts()
       .subscribe((products)=>(this.products=products));
 
-      this.userService.getUsers().subscribe((users)=>(console.log(users)));
+      this.userService.getUser(1).subscribe((user)=>(console.log(user._links.self)));
+      this.productService.getProduct(3).subscribe((product)=>(console.log(product)));
+      this.productService.getEmbedded().subscribe((embedded)=>{ 
+        console.log(embedded.productList);
+        this.embedded = embedded;
+      });
+
+      
+      this.productService.getProducts2().subscribe((products)=>{
+        console.log(products._embedded.productList);
+        this.products2 = products._embedded.productList;
+      });
   }
 
   add(product:Product){

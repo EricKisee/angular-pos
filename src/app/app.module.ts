@@ -13,10 +13,15 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProductComponent } from './components/product/product.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 const appRoutes : Routes = [
-  {path: '', component: ProductsComponent },
-  {path: 'about', component: AboutComponent }
+  {path: '', redirectTo: '/products', pathMatch: 'full' },
+  {path: 'products', component: ProductsComponent },
+  {path: 'about', component: AboutComponent },
+  {path: 'product', component: ProductComponent },
+  {path: '**', component: PagenotfoundComponent },
 ]
 
 @NgModule({
@@ -28,7 +33,9 @@ const appRoutes : Routes = [
     ProductItemComponent,
     AddProductComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    ProductComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
